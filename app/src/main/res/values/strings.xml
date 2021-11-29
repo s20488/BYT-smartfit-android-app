@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SmartFit</string>
+    <string name="app_in_name">SmartFit</string>
+    <string name="app_in_after">RegisterApp</string>
+    <string name="btnSignIn">SIGN IN</string>
+    <string name="btnRegister">SIGN UP</string>
+    <string name="text_bottom">Log in to your account</string>
+</resources>
