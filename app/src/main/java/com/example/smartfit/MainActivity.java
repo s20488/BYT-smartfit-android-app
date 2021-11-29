@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void showSignInWindow() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Войти");
-        dialog.setMessage("Введите все данные для входа");
+        dialog.setTitle("SIGN IN");
+        dialog.setMessage("Enter all login details");
 
         LayoutInflater inflater = LayoutInflater.from(this);
         View sign_in_window = inflater.inflate(R.layout.sign_in_window, null);
@@ -62,16 +62,16 @@ public class MainActivity extends AppCompatActivity {
         final MaterialEditText email = sign_in_window.findViewById(R.id.emailField);
         final MaterialEditText pass = sign_in_window.findViewById(R.id.passField);
 
-        dialog.setNegativeButton("Отменить", (dialogInterface, which) -> dialogInterface.dismiss());
+        dialog.setNegativeButton("Cancel", (dialogInterface, which) -> dialogInterface.dismiss());
 
-        dialog.setPositiveButton("Войти", (dialogInterface, which) -> {
+        dialog.setPositiveButton("Sign in", (dialogInterface, which) -> {
             if(TextUtils.isEmpty(email.getText().toString())) {
-                Snackbar.make(root,"Введите вашу почту", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(root,"Enter your email", Snackbar.LENGTH_SHORT).show();
                 return;
             }
 
             if(pass.getText().toString().length() < 5) {
-                Snackbar.make(root,"Введите пароль, который более 5 символов", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(root,"Enter a password that is longer than 5 characters", Snackbar.LENGTH_SHORT).show();
                 return;
             }
 
@@ -82,15 +82,15 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this, MapActivity.class));
                             finish();
                         }
-                    }).addOnFailureListener(e -> Snackbar.make(root, "Ошибка авторизации. " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
+                    }).addOnFailureListener(e -> Snackbar.make(root, "Authorisation error. " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
         });
         dialog.show();
     }
 
     private void showRegisterWindow() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Зарегестрироваться");
-        dialog.setMessage("Введите все данные для регистрации");
+        dialog.setTitle("SIGN UP");
+        dialog.setMessage("Enter all details for registration");
 
         LayoutInflater inflater = LayoutInflater.from(this);
         View register_window = inflater.inflate(R.layout.register_window, null);
@@ -100,21 +100,21 @@ public class MainActivity extends AppCompatActivity {
         final MaterialEditText pass = register_window.findViewById(R.id.passField);
         final MaterialEditText name = register_window.findViewById(R.id.nameField);
 
-        dialog.setNegativeButton("Отменить", (dialogInterface, which) -> dialogInterface.dismiss());
+        dialog.setNegativeButton("Cancel", (dialogInterface, which) -> dialogInterface.dismiss());
 
-        dialog.setPositiveButton("Добавить", (dialogInterface, which) -> {
+        dialog.setPositiveButton("Add", (dialogInterface, which) -> {
             if(TextUtils.isEmpty(email.getText().toString())) {
-                Snackbar.make(root,"Введите вашу почту", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(root,"Enter your email", Snackbar.LENGTH_SHORT).show();
                 return;
             }
 
             if(TextUtils.isEmpty(name.getText().toString())) {
-                Snackbar.make(root,"Введите ваше имя", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(root,"Enter your name", Snackbar.LENGTH_SHORT).show();
                 return;
             }
 
             if(pass.getText().toString().length() < 5) {
-                Snackbar.make(root,"Введите пароль, который более 5 символов", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(root,"Enter a password that is longer than 5 characters", Snackbar.LENGTH_SHORT).show();
                 return;
             }
 
@@ -127,8 +127,8 @@ public class MainActivity extends AppCompatActivity {
 
                         users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .setValue(user)
-                                .addOnSuccessListener(unused -> Snackbar.make(root, "Пользователь добавлен!", Snackbar.LENGTH_SHORT).show());
-                    }).addOnFailureListener(e -> Snackbar.make(root, "Ошибка авторизации. " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
+                                .addOnSuccessListener(unused -> Snackbar.make(root, "User added!", Snackbar.LENGTH_SHORT).show());
+                    }).addOnFailureListener(e -> Snackbar.make(root, "Authorisation error. " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
         });
         dialog.show();
     }
