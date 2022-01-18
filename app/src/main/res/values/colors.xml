@@ -14,4 +14,5 @@
     <color name="btn_register">#bab716</color>
     <color name="btn_register_stroke">#d1b226</color>
     <color name="program_title">#d1b226</color>
+    <color name="btn_choose">#bab716</color>
 </resources>

@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import com.example.smartfit.Models.User;
+import com.example.smartfit.UserDB.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseApp;
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            startActivity(new Intent(MainActivity.this, MapActivity.class));
+                            startActivity(new Intent(MainActivity.this, ChooseActivity.class));
                             finish();
                         }
                     }).addOnFailureListener(e -> Snackbar.make(root, "Authorisation error. " + e.getMessage(), Snackbar.LENGTH_SHORT).show());
@@ -132,5 +132,4 @@ public class MainActivity extends AppCompatActivity {
         });
         dialog.show();
     }
-
 }

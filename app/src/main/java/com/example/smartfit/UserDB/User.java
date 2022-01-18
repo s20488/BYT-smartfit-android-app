@@ -1,4 +1,4 @@
-package com.example.smartfit.Models;
+package com.example.smartfit.UserDB;
 
 public class User {
     private String name, email, pass;

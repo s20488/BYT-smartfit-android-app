@@ -10,7 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartFit" >
         <activity
-            android:name=".MapActivity"
+            android:name=".Exercises.ExercisesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_exercises"
+            android:theme="@style/Theme.SmartFit.NoActionBar" />
+        <activity
+            android:name=".ChooseActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
