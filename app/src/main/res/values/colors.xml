@@ -9,10 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="text_bottom">#000000</color>
     <color name="ripple_effect">#8f8d28</color>
-    <color name="btn_sign_in">#bab716</color>
+    <color name="btn_sign_in">#d9d51d</color>
     <color name="btn_sign_in_stroke">#d1b226</color>
     <color name="btn_register">#bab716</color>
     <color name="btn_register_stroke">#d1b226</color>
     <color name="program_title">#d1b226</color>
-    <color name="btn_choose">#bab716</color>
+    <color name="btn_choose">#d9d51d</color>
+
+    <color name="cardColor">#ebebeb</color>
 </resources>

@@ -2,47 +2,63 @@ package com.example.smartfit.Exercises;
 
 import android.os.Bundle;
 
-import com.example.smartfit.R;
-import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import com.example.smartfit.databinding.ActivityExercisesBinding;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.smartfit.R;
+import com.example.smartfit.Exercises.adapter.ProductAdapter;
+import com.example.smartfit.Exercises.model.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExercisesActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-private ActivityExercisesBinding binding;
+    RecyclerView prodItemRecycler1;
+    ProductAdapter productAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_exercises);
 
-     binding = ActivityExercisesBinding.inflate(getLayoutInflater());
-     setContentView(binding.getRoot());
+        ImageSlider imageSlider = findViewById(R.id.image_slider);
+        List<SlideModel> slideModels = new ArrayList<>();
+        slideModels.add(new SlideModel(R.drawable.cr1, "Feat And Beat", ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.cr2, "Workouts At Home", ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.cr3, "Anytime Anywhere", ScaleTypes.FIT));
 
-        setSupportActionBar(binding.toolbar);
+        imageSlider.setImageList(slideModels);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_exercises);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        List<model> productsList = new ArrayList<>();
+        productsList.add(new model(1, "MOUNTAIN CLIMBERS", "Time : 2 min", R.drawable.exersice_1));
+        productsList.add(new model(2, "BASIC CRUNCH", "Time : 2 min", R.drawable.exersice_2));
+        productsList.add(new model(3, "REVERSE PUSHUPS", "Time : 2 min", R.drawable.exersice_3));
+        productsList.add(new model(4, "BICYCLE", "Time : 2 min", R.drawable.exersice_4));
+        productsList.add(new model(5, "FLAT BENCH LYING LEG RAISE", "Time : 2 min", R.drawable.exersice_5));
+        productsList.add(new model(6, "HEEL TOUCH", "Time : 2 min", R.drawable.exersice_6));
+        productsList.add(new model(7, "KNEES TO ELBOWS", "Time : 2 min", R.drawable.exersice_7));
+        productsList.add(new model(8, "ALT ARM LEG RAISES", "Time : 2 min", R.drawable.exersice_9));
+        productsList.add(new model(9, "PLANK WITH ARM RAISE", "Time : 2 min", R.drawable.exersice_10));
+        productsList.add(new model(10, "PLANK WITH LEG", "Time : 2 min", R.drawable.exersice_11));
+        productsList.add(new model(11, "SEATED OBLIQUE TWISTS", "Time : 2 min", R.drawable.exersice_12));
+        productsList.add(new model(12, "GLUTE BRIDGES", "Time : 2 min", R.drawable.exersice_13));
+        productsList.add(new model(13, "SCISSOR KICK", "Time : 2 min", R.drawable.exersice_14));
+        productsList.add(new model(14, "WINDMILL", "Time : 2 min", R.drawable.exersice_15));
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        setProdItemRecycler1(productsList);
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_exercises);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+    private void setProdItemRecycler1(List<model> productsList){
+        prodItemRecycler1 = findViewById(R.id.recview1);
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        prodItemRecycler1.setLayoutManager(layoutManager);
+        productAdapter = new ProductAdapter(this, productsList);
+        prodItemRecycler1.setAdapter(productAdapter);
     }
 }
