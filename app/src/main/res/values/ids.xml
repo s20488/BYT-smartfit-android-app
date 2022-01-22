@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="monthYearTV" type="id" />
+    <item name="calendarRecyclerView" type="id" />
+    <item name="eventListView" type="id" />
+    <item name="eventNameET" type="id" />
+    <item name="eventDateTV" type="id" />
+    <item name="eventTimeTV" type="id" />
+    <item name="eventCellTV" type="id" />
+    <item name="parentView" type="id" />
+    <item name="cellDayText" type="id" />
+</resources>
