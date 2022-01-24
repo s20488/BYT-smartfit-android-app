@@ -8,8 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SmartFit">
-
+        android:theme="@style/Theme.Light">
+        <activity
+            android:name=".kalkulator.Settings"
+            android:exported="false" />
+        <activity
+            android:name=".kalkulator.Calculator"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -19,10 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Exercises.ExercisesActivity" />
         <activity android:name=".ChooseActivity" />
-        <activity android:name=".Exercises.FirstExercise"/>
+        <activity android:name=".Exercises.FirstExercise" />
         <activity android:name=".Exercises.FifteenExercise" />
         <activity android:name=".Exercises.FourteenExercise" />
         <activity android:name=".Exercises.ThirteenExercise" />

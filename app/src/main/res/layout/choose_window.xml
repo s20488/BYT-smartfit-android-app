@@ -129,7 +129,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/calendarRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="292dp" />
+            android:layout_height="292dp"
+           />
 
         <Button
             android:layout_width="wrap_content"
@@ -210,8 +211,8 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
 
-        <ImageButton
-            android:id="@+id/imageButton3"
+        <Button
+            android:id="@+id/choose_settings"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:background="@drawable/btn_settings"
