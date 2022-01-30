@@ -6,7 +6,6 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
-import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -32,13 +31,13 @@ import org.junit.runner.RunWith;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class ExercisesUnitTest {
+public class SignInUnitTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void exercisesShouldBeDisplayedCorrectly() {
+    public void userShouldLogInСorrectly() {
         ViewInteraction appCompatButton = onView(
                 allOf(withId(R.id.btnSignIn), withText("SIGN IN"),
                         childAtPosition(
@@ -77,24 +76,6 @@ public class ExercisesUnitTest {
                                         0),
                                 3)));
         appCompatButton2.perform(scrollTo(), click());
-
-        ViewInteraction appCompatButton3 = onView(
-                allOf(withId(R.id.btn_choose_exercises), withText("Exercises"),
-                        childAtPosition(
-                                allOf(withId(R.id.linearLayout2),
-                                        childAtPosition(
-                                                withClassName(is("androidx.constraintlayout.motion.widget.MotionLayout")),
-                                                2)),
-                                0),
-                        isDisplayed()));
-        appCompatButton3.perform(click());
-
-        ViewInteraction recyclerView = onView(
-                allOf(withId(R.id.recview1),
-                        childAtPosition(
-                                withClassName(is("android.widget.LinearLayout")),
-                                2)));
-        recyclerView.perform(actionOnItemAtPosition(0, click()));
     }
 
     private static Matcher<View> childAtPosition(
