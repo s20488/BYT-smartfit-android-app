@@ -1,1 +1,1 @@
-# AndroidApp_SmartFt
+# AndroidApp_SmartFit
